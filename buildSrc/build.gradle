@@ -1,0 +1,48 @@
+buildscript {
+    ext.kotlinVersion = '1.8.10'
+    ext.boosterVersion = '4.15.0'
+    repositories {
+
+        google()
+        mavenCentral()
+        maven {
+            allowInsecureProtocol = true
+            url "http://nexus:8081/repository/android-public/"
+        }
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+repositories {
+
+    google()
+    mavenCentral()
+    maven {
+        allowInsecureProtocol = true
+        url "http://nexus:8081/repository/android-public/"
+    }
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+    kapt "com.google.auto.service:auto-service:1.0"
+
+    implementation "com.didiglobal.booster:booster-task-spi:$boosterVersion"
+    implementation "com.didiglobal.booster:booster-transform-asm:$boosterVersion"
+    implementation "com.didiglobal.booster:booster-android-instrument:$boosterVersion"
+    implementation "com.didiglobal.booster:booster-android-api:$boosterVersion"
+}
