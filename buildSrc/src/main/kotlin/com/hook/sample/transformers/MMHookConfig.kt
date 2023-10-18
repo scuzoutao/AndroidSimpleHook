@@ -57,8 +57,7 @@ val hookConfig = HookConfig(
                     methodDesc = "(I)Landroid/hardware/Sensor;"
                 ),
                 HookMethod(methodName = "registerListener"),
-            ),
-            doNotHookPackages = listOf("com/taou/")
+            )
         ),
         HookClass(
             needHookClass = "android/provider/Settings\$System",
