@@ -7,3 +7,4 @@ hook 框架的实现依托于 booster 封装的 api，相应代码在 buildSrc �
 # 示例功能
 1. 配置化的方法 hook （ done ）
 2. 配置化的 try-catch 工具（ doing ）
+3. plugin化，使用只需要 apply plugin + 配置配置文件 （ doing ）
